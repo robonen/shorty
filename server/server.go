@@ -11,12 +11,12 @@ func New() *echo.Echo {
 	// Server instance
 	server := echo.New()
 
-	// Middlewares
-	server.Use(middleware.Logger())
-
 	// Define routes
 	routes.DefineApiEndpoints(server)
 	routes.DefineWebEndpoints(server)
+
+	// Middlewares
+	server.Use(middleware.Logger())
 
 	return server
 }
